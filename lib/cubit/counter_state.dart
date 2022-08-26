@@ -12,3 +12,4 @@ class CounterInitial extends CounterState {
   CounterInitial({required int counterValue, required bool wasIncremented})
       : super(counterValue, wasIncremented);
 }
+ 
