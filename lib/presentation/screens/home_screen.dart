@@ -37,10 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 print("dsf");
                 return Text(
                   state.counterValue.toString(),
-                  style: Theme
-                      .of(context)
-                      .textTheme
-                      .headline4,
+                  style: Theme.of(context).textTheme.headline4,
                 );
               },
             ),
@@ -51,9 +48,8 @@ class _HomeScreenState extends State<HomeScreen> {
               color: widget.color,
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>
-                        SecondScreen(
-                            title: 'Second Screen', color: Colors.redAccent)));
+                    builder: (context) => SecondScreen(
+                        title: 'Second Screen', color: Colors.redAccent)));
               },
               child: const Text('Go to SecondScreen'),
             )
