@@ -32,9 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
               builder: (context, state) {
                 if (state.counterValue > 10) {
                   print(state.counterValue);
-                }
-                ;
-                print("dsf");
+                };
                 return Text(
                   state.counterValue.toString(),
                   style: Theme.of(context).textTheme.headline4,
