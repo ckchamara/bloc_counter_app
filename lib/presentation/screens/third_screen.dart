@@ -1,25 +1,29 @@
+import 'dart:developer';
+
+import 'dart:developer';
+
 import 'package:bloc_counter_app/cubit/counter_cubit.dart';
-import 'package:bloc_counter_app/presentation/screens/second_screen.dart';
-import 'package:bloc_counter_app/presentation/screens/third_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key, required this.title, required this.color})
+
+class ThirdScreen extends StatefulWidget {
+  const ThirdScreen({Key? key, required this.title, required this.color})
       : super(key: key);
 
   final String title;
   final Color color;
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _ThirdScreenState createState() => _ThirdScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _ThirdScreenState extends State<ThirdScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: widget.color,
         title: Text(widget.title),
       ),
       body: Center(
@@ -96,31 +100,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            SizedBox(
-              height: 24,
-            ),
-            MaterialButton(
-              color: widget.color,
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (secondScreenContext) => BlocProvider.value(
-                          value: BlocProvider.of<CounterCubit>(context),
-                          child: SecondScreen(
-                              title: 'Second Screen', color: Colors.redAccent),
-                        )));
-              },
-              child: const Text('Go to SecondScreen'),
-            ),
-            SizedBox(
-              height: 24,
-            ),
-            MaterialButton(
-              color: widget.color,
-              onPressed: () {
-                Navigator.of(context).pushNamed('/third'); //Named Routes
-              },
-              child: const Text('Go to ThirdScreen'),
-            )
           ],
         ),
       ),
