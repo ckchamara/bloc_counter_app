@@ -18,7 +18,6 @@ class MyApp extends StatefulWidget {
 }
 
 class Home extends State<MyApp> {
-  final CounterCubit _counterCubit = CounterCubit();
 
   final AppRouter _appRouter = AppRouter();
 
@@ -61,7 +60,6 @@ class Home extends State<MyApp> {
   @override
   void dispose() {
     _appRouter.dispose();
-    _counterCubit.close();
     super.dispose();
   }
 }

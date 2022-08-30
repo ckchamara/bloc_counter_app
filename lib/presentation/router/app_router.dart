@@ -8,7 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class AppRouter {
   final CounterCubit _counterCubit = CounterCubit();
 
-
   Route? onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case '/':
