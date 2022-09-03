@@ -12,6 +12,10 @@ class InternetCubit extends Cubit<InternetState> {
   StreamSubscription? connectivitySubscription;
 
   InternetCubit({required this.connectivity}) : super(InternetLoading()) {
+    monitorInternetConnection();
+  }
+
+  void monitorInternetConnection() {
     connectivitySubscription =
         connectivity.onConnectivityChanged.listen((_connectivityResult) {
       if (_connectivityResult == ConnectivityResult.wifi) {
@@ -25,7 +29,7 @@ class InternetCubit extends Cubit<InternetState> {
   }
 
   void emitInternetConnected(ConnectionType _connectionType) =>
-      emit(InternetIConnected(connectionType: _connectionType));
+      emit(InternetConnected(connectionType: _connectionType));
 
   void emitInternetDisconnected() => emit(InternetDisconnected());
 

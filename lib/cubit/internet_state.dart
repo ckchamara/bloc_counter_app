@@ -9,10 +9,10 @@ abstract class InternetState {
 
 class InternetLoading extends InternetState {}
 
-class InternetIConnected extends InternetState {
+class InternetConnected extends InternetState {
    final ConnectionType connectionType;
 
-   InternetIConnected({required this.connectionType});
+   InternetConnected({required this.connectionType});
 }
 
 class InternetDisconnected extends InternetState {}
