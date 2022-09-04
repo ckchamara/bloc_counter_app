@@ -22,6 +22,7 @@ class CounterCubit extends Cubit<CounterState> {
       if (internetState is InternetConnected &&
           internetState.connectionType == ConnectionType.wifi) {
         increment();
+        print('incremented');
       } else if (internetState is InternetConnected &&
           internetState.connectionType == ConnectionType.mobile) {
         decrement();

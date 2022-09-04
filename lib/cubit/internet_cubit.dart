@@ -18,12 +18,16 @@ class InternetCubit extends Cubit<InternetState> {
   void monitorInternetConnection() {
     connectivitySubscription =
         connectivity.onConnectivityChanged.listen((_connectivityResult) {
+          print('monitorinternetconn');
       if (_connectivityResult == ConnectivityResult.wifi) {
         emitInternetConnected(ConnectionType.wifi);
+        print('wifi');
       } else if (_connectivityResult == ConnectivityResult.mobile) {
         emitInternetConnected(ConnectionType.mobile);
-      }else if(_connectivityResult == ConnectivityResult.none);{
+        print('mobile');
+      } else if(_connectivityResult == ConnectivityResult.none) {
         emitInternetDisconnected();
+        print('disconeccted..');
       }
     });
   }

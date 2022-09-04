@@ -15,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
+
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -33,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
               if (state is InternetConnected &&
                   state.connectionType == ConnectionType.wifi) {
                 return Text(
-                  'wifi',
+                  'WI-FI',
                   style: Theme.of(context)
                       .textTheme
                       .headline5
@@ -47,7 +48,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         .headline5
                         ?.copyWith(color: Colors.red));
               } else if (state is InternetDisconnected) {
-                return Text('disconnected');
+                return Text('disconnected',
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline5
+                        ?.copyWith(color: Colors.blue));
               }
               return CircularProgressIndicator();
             }),
@@ -98,29 +103,29 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 24,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                FloatingActionButton(
-                  heroTag: Text('${widget.title}'),
-                  onPressed: () {
-                    BlocProvider.of<CounterCubit>(context).decrement();
-                    // context.bloc<CounterCubit>().decrement();
-                  },
-                  tooltip: 'Decrement',
-                  child: Icon(Icons.remove),
-                ),
-                FloatingActionButton(
-                  heroTag: Text('${widget.title} #2'),
-                  onPressed: () {
-                    BlocProvider.of<CounterCubit>(context).increment();
-                    // context.bloc<CounterCubit>().increment();
-                  },
-                  tooltip: 'Increment',
-                  child: Icon(Icons.add),
-                ),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     FloatingActionButton(
+            //       heroTag: Text('${widget.title}'),
+            //       onPressed: () {
+            //         BlocProvider.of<CounterCubit>(context).decrement();
+            //         // context.bloc<CounterCubit>().decrement();
+            //       },
+            //       tooltip: 'Decrement',
+            //       child: Icon(Icons.remove),
+            //     ),
+            //     FloatingActionButton(
+            //       heroTag: Text('${widget.title} #2'),
+            //       onPressed: () {
+            //         BlocProvider.of<CounterCubit>(context).increment();
+            //         // context.bloc<CounterCubit>().increment();
+            //       },
+            //       tooltip: 'Increment',
+            //       child: Icon(Icons.add),
+            //     ),
+            //   ],
+            // ),
             SizedBox(
               height: 24,
             ),
